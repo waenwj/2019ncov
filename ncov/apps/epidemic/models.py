@@ -6,8 +6,8 @@ from django.utils import timezone
 
 class Epidemic(models.Model):
 
-    name = models.CharField(max_length=255, )
-    province = models.CharField(max_length=255,)
+    name = models.CharField(max_length=255)
+    province = models.CharField(max_length=255)
     add_suspect = models.IntegerField(default=0)
     cumulative_suspect = models.IntegerField(default=0)
     new_diagnosis = models.IntegerField(default=0)

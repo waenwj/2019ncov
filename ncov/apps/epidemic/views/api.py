@@ -10,4 +10,3 @@ class EpidemicListAPIView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     ordering_fields = ["published_at"]
     search_fields = ["name", "province"]
-
