@@ -6,3 +6,7 @@
 * Python 3.7.5
 * Scrapy 1.8.x
 * Django 2.2.x
+
+## 数据源 
+
+    * ChinaCDC
