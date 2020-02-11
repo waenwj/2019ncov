@@ -10,3 +10,11 @@
 ## 数据源 
 
     * ChinaCDC
+
+
+### export data to csv
+
+```
+cd novel_coronavirus
+scrapy  crawl coronavirus -t csv -o ncov.csv
+```
