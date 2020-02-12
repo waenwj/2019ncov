@@ -18,3 +18,6 @@ class Epidemic(models.Model):
 
     class Meta:
         ordering = ["-published_at"]
+        constraints = [
+            models.UniqueConstraint(fields=['name', 'published_at'], name='unique_name'),
+        ]
