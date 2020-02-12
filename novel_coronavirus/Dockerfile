@@ -9,7 +9,3 @@ RUN pip install -r ../requirements/base.txt -i https://pypi.douban.com/simple
 
 
 EXPOSE 6800
-<!--COPY services/scrapyd.conf /etc/scrapyd/scrapyd.conf-->
-<!--COPY services/spider.conf /etc/supervisor/conf.d/-->
-<!--CMD  ["/usr/bin/supervisord"]-->
-<!---->
