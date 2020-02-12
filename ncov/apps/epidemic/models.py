@@ -14,7 +14,7 @@ class Epidemic(models.Model):
     cumulative_diagnosis = models.IntegerField(default=0)
     added_death = models.IntegerField(default=0)
     cumulative_death = models.IntegerField(default=0)
-    published_at = models.DateTimeField(db_index=True, default=timezone.now)
+    published_at = models.DateField(db_index=True)
 
     def __str__(self):
         return self.name

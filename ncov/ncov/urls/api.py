@@ -19,3 +19,8 @@ urlpatterns = [
         name="schema-swagger-ui",
     )
 ]
+
+
+urlpatterns += [
+    path("epidemic/", include("apps.epidemic.urls.api", namespace="epidemic")),
+]
