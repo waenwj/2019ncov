@@ -18,7 +18,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
-REST_FRAMEWORK_APPS = ["rest_framework", "rest_framework.authtoken", "drf_yasg"]
+REST_FRAMEWORK_APPS = ["rest_framework", "rest_framework.authtoken", "django_filters", "drf_yasg"]
 THIRD_PARTY_APPS = ["django_extensions"]
 LOCAL_APPS = ["apps.epidemic"]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
