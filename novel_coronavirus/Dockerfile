@@ -5,7 +5,7 @@ RUN cd /opt
 RUN git clone -b master https://github.com/edison7500/2019ncov.git
 
 WORKDIR /opt/2019ncov/novel_coronavirus
+RUN pip install --upgrade pip
 RUN pip install -r ../requirements/base.txt -i https://pypi.douban.com/simple
-
 
 EXPOSE 6800
