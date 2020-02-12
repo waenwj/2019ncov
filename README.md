@@ -16,7 +16,7 @@
 | 字段        | 对应中文           | 类型  |
 | ------------- |:-------------:| -----:|
 | name      | 名称 | char |
-| province | 省份 | cahr |
+| province | 省份 | char |
 | add_suspect      | 新增疑似     |  int |
 | cumulative_suspect | 累计疑似      |   int |
 | new_diagnosis | 新增确诊 | int |
