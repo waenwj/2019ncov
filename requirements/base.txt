@@ -9,3 +9,4 @@ psycopg2==2.8.4
 pytz==2019.3
 requests==2.22.0
 Scrapy==1.8.0
+scrapyd==1.2.1
