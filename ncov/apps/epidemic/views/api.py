@@ -13,7 +13,7 @@ class EpidemicListAPIView(generics.ListCreateAPIView):
     queryset = Epidemic.objects.all()
     permission_classes = [permissions.AllowAny]
     filterset_class = EpidemicFilter
-    ordering_fields = ["published_at"]
+    ordering_fields = ["published_at", "cumulative_diagnosis", "new_diagnosis"]
     search_fields = ["name", "province"]
 
     def perform_create(self, serializer):

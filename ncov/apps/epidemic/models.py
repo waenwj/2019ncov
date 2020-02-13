@@ -17,7 +17,7 @@ class Epidemic(models.Model):
         return self.name
 
     class Meta:
-        ordering = ["-published_at"]
+        ordering = ["-published_at", "-cumulative_diagnosis", "-new_diagnosis"]
         constraints = [
             models.UniqueConstraint(fields=['name', 'published_at'], name='unique_name'),
         ]
