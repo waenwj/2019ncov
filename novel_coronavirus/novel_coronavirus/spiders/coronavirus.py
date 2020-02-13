@@ -13,7 +13,7 @@ class CoronaVirusSpider(scrapy.Spider):
 
     def start_requests(self):
         base = datetime.today()
-        date_list = [base - timedelta(days=x) for x in range(30)]
+        date_list = [base - timedelta(days=x) for x in range(15)]
         start_urls = []
         for row in date_list:
             dt_string = row.strftime("%Y%m%d")
