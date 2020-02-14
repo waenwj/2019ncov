@@ -1,0 +1,12 @@
+version: '3'
+services:
+  spider:
+    build:
+      context: .
+      dockerfile: spider/Dockerfile
+    ports:
+      - "6800:6800"
+  # ncov:
+  #   web:
+  #     build:
+  #       context: .
