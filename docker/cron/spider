@@ -1,0 +1,1 @@
+0 */1 * * * cd /opt/2019ncov/novel_coronavirus; /usr/local/bin/scrapy crawl coronavirus 
