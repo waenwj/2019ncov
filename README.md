@@ -1,5 +1,6 @@
 # 2019ncov
-
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Python 3](https://pyup.io/repos/github/edison7500/2019ncov/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/2019ncov/)
 
 ## 开发环境
 
