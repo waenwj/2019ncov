@@ -1,0 +1,8 @@
+# coding=utf-8
+import multiprocessing
+
+pidfile = "/var/run/gunicorn.pid"
+bind = "0.0.0.0:8000"
+workers = (4 * 2) + 1
+max_requests_jitter = 65536
+keep_alive = 5
