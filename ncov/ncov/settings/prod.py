@@ -23,6 +23,6 @@ REST_FRAMEWORK = {
         "rest_framework.filters.SearchFilter",
     ],
     "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.PageNumberPagination",
-    "PAGE_SIZE": 30,
+    "PAGE_SIZE": 34,
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
 }
