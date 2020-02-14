@@ -5,13 +5,13 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('epidemic', '0002_auto_20200211_2109'),
-    ]
+    dependencies = [("epidemic", "0002_auto_20200211_2109")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='epidemic',
-            options={'ordering': ['-published_at', '-cumulative_diagnosis', '-new_diagnosis']},
-        ),
+            name="epidemic",
+            options={
+                "ordering": ["-published_at", "-cumulative_diagnosis", "-new_diagnosis"]
+            },
+        )
     ]

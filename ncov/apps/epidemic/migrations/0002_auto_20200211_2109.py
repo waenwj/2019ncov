@@ -5,13 +5,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('epidemic', '0001_initial'),
-    ]
+    dependencies = [("epidemic", "0001_initial")]
 
     operations = [
         migrations.AddConstraint(
-            model_name='epidemic',
-            constraint=models.UniqueConstraint(fields=('name', 'published_at'), name='unique_name'),
-        ),
+            model_name="epidemic",
+            constraint=models.UniqueConstraint(
+                fields=("name", "published_at"), name="unique_name"
+            ),
+        )
     ]
