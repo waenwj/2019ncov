@@ -1,11 +1,10 @@
-from rest_framework import generics, permissions, status
-from rest_framework.exceptions import APIException
-
 from django.db.utils import IntegrityError
+from rest_framework import generics, permissions
 
 from apps.epidemic.filters import EpidemicFilter
 from apps.epidemic.models import Epidemic
 from apps.epidemic.serializers import EpidemicSerializer
+from apps.ext.rest.exceptions import IntegrityException
 
 
 class EpidemicListAPIView(generics.ListCreateAPIView):
@@ -20,4 +19,4 @@ class EpidemicListAPIView(generics.ListCreateAPIView):
         try:
             serializer.save()
         except IntegrityError as e:
-            raise APIException(detail=e, code=status.HTTP_400_BAD_REQUEST)
+            raise IntegrityException(detail=e)
