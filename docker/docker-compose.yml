@@ -1,6 +1,6 @@
 version: '3'
 services:
-  spider:
+  2091ncov:
     build:
       context: .
       dockerfile: Dockerfile
