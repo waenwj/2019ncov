@@ -14,7 +14,5 @@ RUN python manage.py migrate
 
 EXPOSE 8000
 
-# RUN mkdir -p /etc/scrapyd/
-# RUN ln -s /opt/2019ncov/novel_coronavirus/conf/scrapyd.conf /etc/scrapyd/scrapyd.conf
-# RUN ln -s /opt/2019ncov/novel_coronavirus/conf/spider.conf /etc/supervisor/conf.d/spider.conf
-# CMD  ["/usr/bin/supervisord"]
+COPY conf/supervisor.conf /etc/supervisor/conf.d/2019ncov.conf
+CMD  ["/usr/bin/supervisord"]
