@@ -3,10 +3,6 @@ services:
   spider:
     build:
       context: .
-      dockerfile: spider/Dockerfile
+      dockerfile: Dockerfile
     ports:
-      - "6800:6800"
-  # ncov:
-  #   web:
-  #     build:
-  #       context: .
+      - "8000:8000"
