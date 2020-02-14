@@ -1,3 +1,4 @@
+from datetime import timedelta, datetime
 from django.db.utils import IntegrityError
 from rest_framework import generics, permissions
 
@@ -20,3 +21,18 @@ class EpidemicListAPIView(generics.ListCreateAPIView):
             serializer.save()
         except IntegrityError as e:
             raise IntegrityException(detail=e)
+
+
+class EpidemicDateListAPIView(generics.ListAPIView):
+    serializer_class = EpidemicSerializer
+    search_fields = ["name", "province"]
+    ordering_fields = ["cumulative_diagnosis", "new_diagnosis"]
+
+    def _process_date(self):
+        dt_string = self.kwargs.get("date")
+        dt = datetime.strptime(dt_string, "%Y%m%d")
+        return dt
+
+    def get_queryset(self):
+        qs = Epidemic.objects.filter(published_at=self._process_date())
+        return qs
