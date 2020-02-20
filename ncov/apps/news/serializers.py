@@ -15,7 +15,7 @@ class TransferNewsSerializer(serializers.ModelSerializer):
     c7e5c3d3d0d81771 = serializers.CharField(source="summary")
     ecc9f3c91d371a8e = serializers.CharField(source="reportSource")
     f12c47594e48848a = serializers.CharField(source="webpageUrl")
-    review_state = serializers.IntegerField(default=0)
+    review_state = serializers.IntegerField(default=1)
     published = serializers.DateTimeField(source="releaseTime")
 
     class Meta:
