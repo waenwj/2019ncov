@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  2019ncov:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=a5f7158293c84903bfecc7a9fb356d0f
+      - DATABASE_URL=psql://postgres@db:5432/postgres
+      - TOKEN=eeeafd249b0e9b2ad4e6f70c68c80fbc2a783d11
+      - POST_URL=""
+      - POST_TOTAL_EPIDEMIC_URL=""
+    depends_on:
+      - db
