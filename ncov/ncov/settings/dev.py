@@ -27,11 +27,11 @@ REST_FRAMEWORK = {
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
 }
 
-SERV_TOKEN = env("SERV_TOKEN", default=None)
+SERV_TOKEN = env("SERV_TOKEN", default="")
 POST_HEADERS = {
     "Authorization": f"edittoken {SERV_TOKEN}",
     "Content-Type": "application/json; charset=utf-8"
 }
-POST_URL = env("POST_URL")
-POST_TOTAL_EPIDEMIC_URL = env("POST_TOTAL_EPIDEMIC_URL")
+POST_URL = env("POST_URL", default=None)
+POST_TOTAL_EPIDEMIC_URL = env("POST_TOTAL_EPIDEMIC_URL", default=None)
 

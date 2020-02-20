@@ -19,7 +19,7 @@ post_url = getattr(settings, "POST_TOTAL_EPIDEMIC_URL")
 def crawl_post_action(sender, instance: TotalEpidemic, created, **kwargs) -> None:
     if created:
         if post_url is None:
-            return 
+            return
         ser = TransferTotalEpidemicSerializer(instance, many=False)
         _data = ser.data
         update_data = {
