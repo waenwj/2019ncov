@@ -11,8 +11,8 @@ services:
     environment:
       - SECRET_KEY=a5f7158293c84903bfecc7a9fb356d0f
       - DATABASE_URL=psql://postgres@db:5432/postgres
-      - TOKEN=eeeafd249b0e9b2ad4e6f70c68c80fbc2a783d11
-      - POST_URL=""
-      - POST_TOTAL_EPIDEMIC_URL=""
+      - TOKEN=None
+      - POST_URL=None
+      - POST_TOTAL_EPIDEMIC_URL=None
     depends_on:
       - db

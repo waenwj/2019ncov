@@ -18,9 +18,10 @@ post_url = getattr(settings, "POST_TOTAL_EPIDEMIC_URL")
 @receiver(post_save, sender=TotalEpidemic)
 def crawl_post_action(sender, instance: TotalEpidemic, created, **kwargs) -> None:
     if created:
+        if post_url is None:
+            return 
         ser = TransferTotalEpidemicSerializer(instance, many=False)
         _data = ser.data
-
         update_data = {
             "title": _data.get("title"),
             "5d7593ade13c29b1": _data.get("updateTime"),
@@ -30,8 +31,6 @@ def crawl_post_action(sender, instance: TotalEpidemic, created, **kwargs) -> Non
             "6440ff5d6e79baf9": _data.get("totalNowConfirmCnt"),
         }
         json_str = json.dumps(update_data)
-        logger.info(headers)
-        logger.info(json_str)
         res = requests.put(post_url, data=json_str, headers=headers)
         r = res.json()
         if r.get("code") == 200:

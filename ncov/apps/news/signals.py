@@ -10,15 +10,15 @@ from apps.news.serializers import TransferNewsSerializer
 logger = logging.getLogger("django")
 
 headers = getattr(settings, "POST_HEADERS")
-post_url = getattr(settings, "POST_URL")
+post_url = getattr(settings, "POST_URL", None)
 
 
 @receiver(post_save, sender=News)
 def crawled_post_action(sender, instance: News, created, **kwargs) -> None:
     if created:
+        if post_url is None:
+            return
         ser = TransferNewsSerializer(instance)
-        logger.info(ser.data)
-
         res = requests.post(post_url, json=ser.data, headers=headers)
         if 200 <= res.status_code <= 299:
             logger.info("post ok")
