@@ -35,7 +35,7 @@ class PeopleAPPSpider(scrapy.Spider):
         _data = json.loads(response.text)
         # print(_data["data"]["records"])
         for row in _data["data"]["records"]:
-            pprint(row, indent=2)
+            # pprint(row, indent=2)
             yield self.parse_data(data=row)
 
     def parse_data(self, data: dict):
@@ -51,5 +51,5 @@ class PeopleAPPSpider(scrapy.Spider):
         item.add_value("webpageCode", data["webpageCode"])
         item.add_value("webpageUrl", data.get("webpageUrl"))
         item.add_value("reportSource", data.get("reportSource"))
-        self.logger.info(item.load_item())
+        # self.logger.info(item.load_item())
         return item.load_item()

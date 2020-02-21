@@ -94,3 +94,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # ----------------------------------------------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = "/static/"
+
+
+# logging
+# ----------------------------------------------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/1.11/topics/logging/
+from .ncov_logging import LOGGING as loggin_config
+
+LOGGING = loggin_config

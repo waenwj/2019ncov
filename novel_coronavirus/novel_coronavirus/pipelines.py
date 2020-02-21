@@ -17,6 +17,14 @@ class JsonWriterPipeline(object):
         return item
 
 
+class CheckCrawlSourcePipeline(object):
+    def process_item(self, item, spider):
+        if spider.name in ["peopleapp"]:
+            if item["crawlSource"] not in ["央视新闻客户端", "新华网", "人民网"]:
+                raise DropItem(f"{item['crawlSource']} source not in crawl list ")
+        return item
+
+
 class DuplicatesPipeline(object):
     def process_item(self, item, spider):
         if spider.name in ["peopleapp"]:

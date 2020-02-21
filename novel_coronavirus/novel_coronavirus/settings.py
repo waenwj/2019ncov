@@ -65,6 +65,7 @@ TELNETCONSOLE_ENABLED = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+    "novel_coronavirus.pipelines.CheckCrawlSourcePipeline": 195,
     "novel_coronavirus.pipelines.DuplicatesPipeline": 200,
     "novel_coronavirus.pipelines.PostPipeline": 300,
     # 'novel_coronavirus.pipelines.JsonWriterPipeline': 300,
