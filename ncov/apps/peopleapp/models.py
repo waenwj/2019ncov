@@ -52,7 +52,7 @@ class TotalEpidemic(models.Model):
 
     @property
     def totalNowConfirmCnt(self) -> int:
-        _totalNowConfirmCnt = self.epidemics.get("totalNowConfirmCnt", 0)
+        _totalNowConfirmCnt = self.epidemics.get("totalConfirmAddCnt", 0)
         if not isinstance(_totalNowConfirmCnt, int):
             _totalNowConfirmCnt = int(_totalNowConfirmCnt)
         return _totalNowConfirmCnt
