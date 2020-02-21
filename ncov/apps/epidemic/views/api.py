@@ -6,7 +6,8 @@ from rest_framework.response import Response
 
 from apps.epidemic.filters import EpidemicFilter
 from apps.epidemic.models import Epidemic
-from apps.epidemic.serializers import EpidemicSerializer, EChartSerializer
+from apps.epidemic.serializers import EpidemicSerializer, EpidemicTotalSerializer
+from apps.epidemic.views.mixins import ProcessDateMixin
 from apps.ext.rest.exceptions import IntegrityException
 
 
@@ -25,39 +26,20 @@ class EpidemicListAPIView(generics.ListCreateAPIView):
             raise IntegrityException(detail=e)
 
 
-class EpidemicDateListAPIView(generics.ListAPIView):
+class EpidemicDateListAPIView(ProcessDateMixin, generics.ListAPIView):
     serializer_class = EpidemicSerializer
     search_fields = ["name", "province"]
     ordering_fields = ["cumulative_diagnosis", "cumulative_suspect", "cumulative_death"]
 
-    def _process_date(self):
-        dt_string = self.kwargs.get("date")
-        dt = datetime.strptime(dt_string, "%Y%m%d")
-        return dt
-
     def get_queryset(self):
-        qs = Epidemic.objects.filter(published_at=self._process_date())
+        qs = Epidemic.objects.filter(published_at=self.process_date(**self.kwargs))
         return qs
 
 
-class EChartDateListAPIView(generics.ListAPIView):
-    serializer_class = EChartSerializer
-    ordering_fields = ["cumulative_diagnosis", "cumulative_suspect", "cumulative_death"]
-    pagination_class = None
+class EpidemicTotalAPIView(ProcessDateMixin, generics.RetrieveAPIView):
+    serializer_class = EpidemicTotalSerializer
 
-    def _process_date(self):
-        dt_string = self.kwargs.get("date")
-        dt = datetime.strptime(dt_string, "%Y%m%d")
-        return dt
-
-    def get_queryset(self):
-        qs = Epidemic.objects.filter(published_at=self._process_date())
-        return qs
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        _data = serializer.data
-        _data.insert(0, ["省市", "确诊", "疑似", "治愈", "死亡"])
-        return Response(_data)
+    def get_object(self):
+        _obj = Epidemic.objects.total_by_date(self.process_date(**self.kwargs))
+        return _obj
 

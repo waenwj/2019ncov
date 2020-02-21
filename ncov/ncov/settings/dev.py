@@ -27,6 +27,13 @@ REST_FRAMEWORK = {
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
 }
 
+# django extensions shell plus
+# ----------------------------------------------------------------------------------------------------------------------
+# https://django-extensions.readthedocs.io/en/latest/shell_plus.html
+SHELL_PLUS = "ptpython"
+SHELL_PLUS_PRINT_SQL = True
+SHELL_PLUS_PRINT_SQL_TRUNCATE = 1000
+
 SERV_TOKEN = env("SERV_TOKEN", default="")
 POST_HEADERS = {
     "Authorization": f"edittoken {SERV_TOKEN}",
@@ -34,4 +41,5 @@ POST_HEADERS = {
 }
 POST_URL = env("POST_URL", default=None)
 POST_TOTAL_EPIDEMIC_URL = env("POST_TOTAL_EPIDEMIC_URL", default=None)
+
 
