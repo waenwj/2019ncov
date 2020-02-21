@@ -7,6 +7,7 @@
 * Python 3.7.5
 * Scrapy 1.8.x
 * Django 2.2.x
+* pygal 2.4
 
 ## 数据源 
 * ChinaCDC
@@ -49,4 +50,5 @@ python manage.py runserver
 chrome http://127.0.0.1:8000/epidemic/20200215/
 ```
 
+![novel corona virus line](img/line.png)
 ![novel corona virus treemap](img/treemap.png)
