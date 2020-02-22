@@ -1,0 +1,15 @@
+Update: insecure
+schedule: "every day"
+Search: False
+Pin: True
+Default Branch: master
+Branch pre-fix: pyup-
+requirements:
+  - requirements/base.txt:
+      update: all
+      pin: True
+  - requirements/dev.txt:
+      update: False
+  - requirements/prod.txt:
+      update: insecure
+      pin: True
