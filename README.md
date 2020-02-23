@@ -1,12 +1,14 @@
 # 2019ncov
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Python 3](https://pyup.io/repos/github/edison7500/2019ncov/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/2019ncov/)
+[![Updates](https://pyup.io/repos/github/coronavirus-pi/2019ncov/shield.svg)](https://pyup.io/repos/github/coronavirus-pi/2019ncov/)
+[![Python 3](https://pyup.io/repos/github/coronavirus-pi/2019ncov/python-3-shield.svg)](https://pyup.io/repos/github/coronavirus-pi/2019ncov/)
 
 ## 开发环境
 
 * Python 3.7.5
 * Scrapy 1.8.x
 * Django 2.2.x
+* pygal 2.4
 
 ## 数据源 
 * ChinaCDC
@@ -49,4 +51,5 @@ python manage.py runserver
 chrome http://127.0.0.1:8000/epidemic/20200215/
 ```
 
+![novel corona virus line](img/line.png)
 ![novel corona virus treemap](img/treemap.png)
