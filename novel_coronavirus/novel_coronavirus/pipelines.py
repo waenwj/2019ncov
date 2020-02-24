@@ -20,7 +20,11 @@ class JsonWriterPipeline(object):
 class CheckCrawlSourcePipeline(object):
     def process_item(self, item, spider):
         if spider.name in ["peopleapp"]:
-            if item["crawlSource"] not in ["央视新闻客户端", "人民网"]:
+            if item["crawlSource"] == "央视新闻客户端":
+                return item
+            elif item["crawlSource"] == "人民网" and item["reportSource"].startswith("人民网"):
+                return item
+            else:
                 raise DropItem(f"{item['crawlSource']} source not in crawl list ")
         return item
 
