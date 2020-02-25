@@ -39,7 +39,7 @@ class PeopleAPPSpider(scrapy.Spider):
             yield self.parse_data(data=row)
 
     def parse_data(self, data: dict):
-        self.logger.info(data)
+        self.logger.debug(data)
         item = FlashNewsLoader(item=FlashNewsItem())
         item.add_value("crawlSource", data["crawlSource"])
         item.add_value("majorClassification", data["majorClassification"])
