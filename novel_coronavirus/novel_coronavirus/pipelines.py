@@ -20,7 +20,7 @@ class JsonWriterPipeline(object):
 class CheckCrawlSourcePipeline(object):
     def process_item(self, item, spider):
         if spider.name in ["peopleapp"]:
-            if item["crawlSource"] == "央视新闻客户端":
+            if item["crawlSource"] in ["央视新闻客户端", "手机人民网", "环球网", "人民日报客户端", "中国国际电视台"]:
                 return item
             elif item["crawlSource"] == "人民网" and item["reportSource"].startswith("人民网"):
                 return item

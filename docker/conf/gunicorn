@@ -1,8 +1,11 @@
 # coding=utf-8
+import os
 import multiprocessing
 
 pidfile = "/var/run/gunicorn.pid"
 bind = "0.0.0.0:8000"
-workers = (4 * 2) + 1
-max_requests_jitter = 65536
+workers = os.getenv("WORKER_NUMS", multiprocessing.cpu_count() * 2 + 1)
+max_requests = 8192
+max_requests_jitter = 8192
 keep_alive = 5
+reuse_port = True
